@@ -28,31 +28,22 @@ already-published version.
 Linux is declared for real, not to pad out platform coverage: Homebrew's
 tap-trust audit evaluates an `on_macos`/`on_arm`/`on_intel` formula against
 every platform once the tap is trusted, and an on_macos-only formula fails
-that check on Linux with "formula requires at least a URL" even though
-nothing there ever installs it. We already publish `linux-arm64`/`linux-amd64`
-to the same bucket, so pointing Linuxbrew at them is a real answer instead of
-a dummy URL.
+that check on Linux with "formula requires at least a URL". We already
+publish `linux-arm64`/`linux-amd64` to the same bucket, so pointing Linuxbrew
+at them is a real answer instead of a dummy URL.
 
-## Updating the formula
+## When the formula changes
 
-Automatic: `mage release` and `mage deploy` in `piperace_client` push a new
-`Formula/piperace.rb` here as their last step, once S3 is confirmed live —
-see the "Homebrew tap publishing" section of `magefile.go`. Nothing to do by
-hand for an ordinary release.
-
-If that step failed (no token yet, a transient GitHub error) — it warns but
-does not fail the release — retry it on its own without repeating the S3
-upload:
+Only when a version is announced — never when a build is merely published.
+In `piperace_client`:
 
 ```
-VERSION=1.5.23 mage releaseHomebrew
+mage release            # publishes a build; changes nothing for users
+mage announce 1.5.24    # makes it live: backend, this formula and npm together
+mage announce 1.5.23    # rollback is the same command
+mage status             # which version each channel hands out
 ```
 
-That needs a GitHub token with Contents: read/write on this repo, stored
-once with:
-
-```
-pbpaste | mage saveHomebrewTapToken
-```
-
-(or pass `HOMEBREW_TAP_TOKEN` in the environment, e.g. in CI).
+`mage announce` needs a GitHub token with Contents: read/write on this repo,
+stored once with `pbpaste | mage saveHomebrewTapToken` (or `HOMEBREW_TAP_TOKEN`
+in the environment).
