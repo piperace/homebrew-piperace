@@ -3,8 +3,12 @@
 Homebrew tap for the [Piperace](https://piperace.com) CLI.
 
 ```
-brew install piperace/piperace/piperace
+brew tap piperace/piperace
+brew install piperace
 ```
+
+(`brew install piperace/piperace/piperace` also works as a one-liner —
+same install, just spelled as owner/tap/formula instead of two steps.)
 
 Binaries are pulled straight from the same S3 release bucket the npm
 package and the in-app updater use (`piperace-downloads`), so this tap
