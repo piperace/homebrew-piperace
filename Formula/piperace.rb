@@ -2,6 +2,7 @@ class Piperace < Formula
   desc "Expose local ports through a Piperace tunnel"
   homepage "https://piperace.com"
   version "1.5.23"
+  depends_on :macos
 
   on_macos do
     on_arm do
