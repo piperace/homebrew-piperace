@@ -1,27 +1,27 @@
 class Piperace < Formula
   desc "Expose local ports through a Piperace tunnel"
   homepage "https://piperace.com"
-  version "1.5.33"
+  version "1.5.34"
 
   on_macos do
     on_arm do
-      url "https://piperace-downloads.s3.us-east-1.amazonaws.com/1.5.33/piperace-darwin-arm64"
-      sha256 "c5032f1e85bcc681e0dbde4272c72c9a4d8f0f86eafef309d4ae7b4b0ff58f50"
+      url "https://piperace-downloads.s3.us-east-1.amazonaws.com/1.5.34/piperace-darwin-arm64"
+      sha256 "e4b5935564901ea4fb95522f52b5b015414a0204e4eee643fb056231aba25d0d"
     end
     on_intel do
-      url "https://piperace-downloads.s3.us-east-1.amazonaws.com/1.5.33/piperace-darwin-amd64"
-      sha256 "13ed70a58c2d11d3628b21a8fc75c926131f53f6df58f482e9747adab8cda7a4"
+      url "https://piperace-downloads.s3.us-east-1.amazonaws.com/1.5.34/piperace-darwin-amd64"
+      sha256 "e68fa766158fe05ce4262d1a138c30213830a77ab0715ce14fdcd285d636e84a"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://piperace-downloads.s3.us-east-1.amazonaws.com/1.5.33/piperace-linux-arm64"
-      sha256 "e72ead0317fc130be21c841bc5f37042e086040d42ae645ed7c98faf43ab7d9f"
+      url "https://piperace-downloads.s3.us-east-1.amazonaws.com/1.5.34/piperace-linux-arm64"
+      sha256 "872c6ce59fa790f45878af7843a87fdd0f77a9012499762879dd9bd64a402552"
     end
     on_intel do
-      url "https://piperace-downloads.s3.us-east-1.amazonaws.com/1.5.33/piperace-linux-amd64"
-      sha256 "cf6c5609c29ab65bfa1b9b4abd22e4374621e90022c0d0bda23a479ca4dac2bd"
+      url "https://piperace-downloads.s3.us-east-1.amazonaws.com/1.5.34/piperace-linux-amd64"
+      sha256 "1efd77cedd6c9d532444e1a163fc6903dcffb3449c07afbc12b721bd28136f33"
     end
   end
 
